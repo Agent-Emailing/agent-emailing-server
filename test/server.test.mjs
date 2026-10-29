@@ -83,9 +83,11 @@ test("an unknown sender's request is held, told to the owner without its content
   const p = pair({ deskRoster: {}, deskDeliver: async (d) => { seen.push(d); return { status: "completed", text: "ok" }; } });
   try {
     await p.ana.start(); await p.desk.start();
-    await p.ana.request({ to: ID.responder, offering: "book-meeting", text: "secret plans" });
+    await p.ana.request({ to: ID.responder, offering: "book-meeting", text: "secret plans", files: [{ name: "plan.txt", media_type: "text/plain", bytes: Buffer.from("the plan") }] });
     await p.net.settle();
     assert.equal(seen.length, 0);
+    const kept = [...p.desk["heldMail"].values()][0];
+    assert.equal(kept.verdict.files, undefined, "a held message's files are not opened before it is admitted (§3.4)");
     const held = p.desk.heldAttempts();
     assert.equal(held.length, 1);
     assert.equal(held[0].sender, ID.requester);
@@ -96,6 +98,9 @@ test("an unknown sender's request is held, told to the owner without its content
     await p.net.settle();
     assert.equal(r.released, 1);
     assert.equal(seen.length, 1);
+    assert.equal(seen[0].files[0].status, "verified");
+    assert.equal(Buffer.from(seen[0].files[0].content_base64, "base64").toString(), "the plan");
+    assert.match(seen[0].payload.text, /BEGIN SENDER MESSAGE/);
     assert.equal(p.desk.heldAttempts().length, 0);
     assert.equal(p.net.log.length, 2, "the answer went out after release");
   } finally { await p.cleanup(); }

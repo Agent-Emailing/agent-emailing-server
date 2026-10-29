@@ -102,6 +102,8 @@ export interface Verdict {
   hintMismatch?: string[];
   bridged?: { marker: IdentityBridgeMarker; address: string };
   report?: DeliveryReport;
+  /** A held message's file parts, kept unopened until it is admitted. */
+  heldParts?: { contentId: string; bytes: Uint8Array }[];
   /** A plain email's sender, for a knock: who, never what they said. */
   knock?: { address?: string; dmarcPass: boolean };
   person?: PersonView;
@@ -280,15 +282,31 @@ async function afterVerify(env: Envelope, mail: MimePart, o: ReceiverOptions, no
     return { ...v, refusal: "blocked", respondTo: undefined };
   }
 
-  // Step 7: cid: references, resolved only inside this email (§3.4).
-  v.files = resolveFiles(env, mail);
-  // Step 8: a copy of the payload with the sender text fenced (§22.6).
+  if (env.type === "respond") v.respondTo = undefined; // a respond is never answered by email
+  if (standing.stance === "hold") {
+    // Not admitted yet: file parts are kept, unopened and unchecked (§3.4),
+    // until the owner decides. finishDelivery does steps 7 and 8 then.
+    v.heldParts = leaves(mail).filter((p) => contentId(p)).map((p) => ({ contentId: contentId(p)!, bytes: p.bytes }));
+    return { ...v, action: "hold" };
+  }
+  finishDelivery(v, mail, now);
+  return { ...v, action: "deliver" };
+}
+
+/** Steps 7 and 8 for an admitted envelope: resolve its cid: references inside
+ *  this email (§3.4), and make a copy of its payload with the sender text
+ *  fenced (Agent Messaging §22.6). `mail` may be the parts kept for a held message. */
+export function finishDelivery(v: Verdict, mail: MimePart | { contentId: string; bytes: Uint8Array }[], now: Date): void {
+  const env = v.envelope!;
+  const tree: MimePart = Array.isArray(mail)
+    ? { headers: [], type: "multipart/mixed", params: {}, bytes: Buffer.alloc(0), encoding: "7bit",
+        parts: mail.map((p) => ({ headers: [["content-id", `<${p.contentId}>`]], type: "application/octet-stream", params: {}, parts: [], bytes: Buffer.from(p.bytes), encoding: "binary" })) }
+    : mail;
+  if (v.mode !== "bridged") v.files = resolveFiles(env, tree);
   v.fencedPayload = fencePayload(env.payload, {
     from: env.from, received_at: now.toISOString(), trace: env.trace,
-    handle: card?.handle, operator: card?.operator?.name, audience: env.meta?.audience === "person" ? "person" : undefined,
+    handle: v.card?.handle, operator: v.card?.operator?.name, audience: env.meta?.audience === "person" ? "person" : undefined,
   }).payload;
-  if (env.type === "respond") v.respondTo = undefined; // a respond is never answered by email
-  return { ...v, action: standing.stance === "hold" ? "hold" : "deliver" };
 }
 
 /** Resolve every cid: entry against this email's parts, checking size and digest. */

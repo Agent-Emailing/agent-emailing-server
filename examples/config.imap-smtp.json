@@ -1,0 +1,24 @@
+{
+  "agent": {
+    "seedFile": "state/agent.seed",
+    "address": "agent@example.org",
+    "name": "Example agent",
+    "handle": "Assistant.ana@example.org",
+    "actsFor": "Ana Lima",
+    "offerings": { "echo": "Echo" },
+    "timeZone": "America/Denver"
+  },
+  "carrier": {
+    "type": "imap-smtp",
+    "imap": { "host": "imap.example.org", "port": 993, "security": "tls", "user": "agent@example.org", "passEnv": "MAILBOX_PASSWORD" },
+    "smtp": { "host": "smtp.example.org", "port": 465, "security": "tls", "user": "agent@example.org", "passEnv": "MAILBOX_PASSWORD" }
+  },
+  "agentInterface": { "url": "http://127.0.0.1:8080/deliver", "tokenEnv": "AGENT_TOKEN" },
+  "http": { "host": "127.0.0.1", "port": 8025, "tokenEnv": "SERVER_TOKEN" },
+  "stateDir": "state",
+  "roster": { "contacts": [] },
+  "registrar": { "url": "https://registrar.example.net" },
+  "bridge": { "enabled": false },
+  "strangers": "knock",
+  "trustedAuthservIds": ["mx.example.org"]
+}

@@ -15,7 +15,7 @@ import type { AgentKey } from "../envelope/keys.js";
 import { attachFile, composeAgentEmail } from "../compose.js";
 import { emailEndpoint, type CardResolver, type Roster, type Stance } from "../cards.js";
 import { IdentityBridge } from "../identity-bridge.js";
-import { receiveEmail, type ReceivedFile, type Verdict } from "../receive.js";
+import { finishDelivery, receiveEmail, type ReceivedFile, type Verdict } from "../receive.js";
 import { DuplicateMemory, Collection } from "../store.js";
 import { TaskStore, TERMINAL } from "../tasks.js";
 import type { Attachment } from "../mime/mime.js";
@@ -157,7 +157,10 @@ export class AgentEmailServer {
   private sent: Collection<SentRecord>;
   private events: Collection<number>;
   private held: Collection<HeldRecord>;
-  private heldMail: Collection<{ sender: string; delivery: Delivery; request?: RequestRecord; at: string }>;
+  private heldMail: Collection<{
+    sender: string; verdict: Verdict; parts: { contentId: string; b64: string }[];
+    bridgedFiles: { entry: FileRef; status: ReceivedFile["status"]; b64?: string }[]; at: string;
+  }>;
   private pending: Collection<{ delivery: Delivery; request?: RequestRecord; tries: number; next: number }>;
   private outcomes: Collection<{ request_id?: string; message_id?: string; outcome: string; status?: string; at: string }>;
   readonly tasks: TaskStore;
@@ -246,9 +249,12 @@ export class AgentEmailServer {
       case "report": await this.handleReport(v); break;
       case "knock": this.recordAttempt(v, v.envelope ? "knock" : "plain email"); break;
       case "hold": {
-        const { delivery, request } = this.buildDelivery(v);
         this.recordAttempt(v, "held message");
-        this.heldMail.set(`${v.envelope!.from}\n${v.envelope!.id}`, { sender: v.envelope!.from, delivery, request, at: now.toISOString() });
+        // Kept as received; it is read and checked only when the owner allows it.
+        const { heldParts, ...kept } = v;
+        const parts = (heldParts ?? []).map((p) => ({ contentId: p.contentId, b64: Buffer.from(p.bytes).toString("base64") }));
+        const bridgedFiles = v.mode === "bridged" ? (v.files ?? []).map((f) => ({ entry: f.entry, status: f.status, b64: f.bytes?.toString("base64") })) : [];
+        this.heldMail.set(`${v.envelope!.from}\n${v.envelope!.id}`, { sender: v.envelope!.from, verdict: { ...kept, files: undefined }, parts, bridgedFiles, at: now.toISOString() });
         break;
       }
       case "deliver": {
@@ -406,7 +412,13 @@ export class AgentEmailServer {
     for (const [key, m] of this.heldMail.entries()) {
       if (m.sender !== sender) continue;
       this.heldMail.delete(key);
-      if (stance === "allow") { released++; await this.dispatch(m.delivery, m.request); }
+      if (stance !== "allow") continue;
+      released++;
+      const v: Verdict = { ...m.verdict, action: "deliver" };
+      if (v.mode === "bridged") v.files = m.bridgedFiles.map((f) => ({ entry: f.entry, status: f.status, bytes: f.b64 ? Buffer.from(f.b64, "base64") : undefined }));
+      finishDelivery(v, m.parts.map((p) => ({ contentId: p.contentId, bytes: Buffer.from(p.b64, "base64") })), this.now());
+      const { delivery, request } = this.buildDelivery(v);
+      await this.dispatch(delivery, request);
     }
     return { released };
   }
