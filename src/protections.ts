@@ -54,7 +54,7 @@ export const FENCE_END = "--- END SENDER MESSAGE ---";
 
 /** The three steps, in order. */
 export function fenceText(text: string): string {
-  const lf = text.replace(/\r\n|\r|\u0085|2028|2029/g, "\n");
+  const lf = text.replace(/\r\n|\r|\u0085|\u2028|\u2029/g, "\n");
   // eslint-disable-next-line no-control-regex
   const clean = lf.replace(/[\u0000-\u0008\u000b-\u001f\u007f]/g, "");
   return clean.split("\n").map((l) => (/-{3,}|={3,}/.test(l) ? " " + l : l)).join("\n");
