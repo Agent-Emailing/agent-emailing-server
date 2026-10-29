@@ -143,8 +143,8 @@ notes on each carrier, and how to write and test a new adapter.
 | Provider | Built | Tested against | Proven live |
 |---|---|---|---|
 | IMAP and SMTP (built in) | yes | fake IMAP and SMTP servers on localhost, with the conformance fixtures | TLS, STARTTLS, greeting, capabilities and sign-in refusals against Gmail. A signed-in IMAP round trip was not run: the test mailbox's credentials do not allow IMAP. |
-| Resend | yes | mocked API in its documented shapes | Sending: the carrier test of §12.3 and a fresh signed request, through Resend to a real mailbox, both passing. Inbound and status were not run live: the key used can only send. |
-| AgentMail | yes | mocked API in its documented shapes | no |
+| Resend | yes | mocked API in its documented shapes | Sending: the carrier test of §12.3 and a fresh signed request, through Resend to a real mailbox, both passing; and the signed respond of the AgentMail run. Inbound and status were not run live: the key used can only send. |
+| AgentMail | yes | mocked API in its documented shapes | A signed request with a file, sent from a test AgentMail inbox through the adapter, and the signed respond with a file received back into it: raw message fetched, both files verified against their signed digests. The carrier test of §12.3 inside AgentMail, from the inbox to itself, passing. Inbound was read by polling; webhooks were not run live. |
 | Cloudflare Email | yes, with an example Worker | mocked Worker, using the Worker's own signing code | no |
 | Primitive | yes | mocked API in its documented shapes, refusing every header but its three | no |
 

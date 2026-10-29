@@ -1,7 +1,7 @@
 // Name cards (Personal Agent Naming §5.1, §5.3) and how a receiver uses them:
 // a native sender's standing (Agent Emailing §6.2), the handle the human part
 // and the frame name, and the email endpoint a respond may go to (§5.3).
-import { createPublicKey, verify } from "node:crypto";
+import { createPublicKey, generateKeyPairSync, sign, verify, type KeyObject } from "node:crypto";
 import { canonical, sha256hex } from "./envelope/envelope.js";
 
 export interface NameCard {
@@ -164,4 +164,19 @@ export function admit(opts: { from: string; roster: Roster; card?: NameCard; vou
   else { tier = "anonymous"; basis = "none"; }
   const defaultStance = defaults[tier];
   return { tier, stance: entry ? entry.stance : defaultStance, defaultStance, card: opts.card, basis };
+}
+
+// ── signing cards (for test registrars and tools) ───────────────────────────
+
+/** A new registrar signing key, in the form Personal Agent Naming §5.3 publishes. */
+export function createRegistrarKey(): { key: string; kid: string; privateKey: KeyObject } {
+  const { privateKey, publicKey } = generateKeyPairSync("ed25519");
+  const spki = publicKey.export({ format: "der", type: "spki" });
+  const key = Buffer.from(spki.subarray(spki.length - 32)).toString("base64url");
+  return { key, kid: kidOf(key), privateKey };
+}
+
+/** Sign a card with a registrar key (Personal Agent Naming §5.3). */
+export function signCard(card: NameCard, reg: { key: string; kid: string; privateKey: KeyObject }): SignedCard {
+  return { card, registrar_key: reg.key, registrar_kid: reg.kid, registrar_sig: sign(null, Buffer.from(canonical(card), "utf8"), reg.privateKey).toString("base64") };
 }

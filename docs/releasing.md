@@ -32,6 +32,9 @@ by hand with the credentials in the environment:
 
 - `tools/live-resend-imap.mjs` sends through Resend and reads the mailbox back,
   then runs the carrier test of §12.3 and the receiver on what arrived.
+- `tools/live-agentmail.mjs` makes a test AgentMail inbox, runs a signed request
+  and respond with files between it and an agent on another carrier, runs the
+  carrier test inside AgentMail, and deletes the inbox.
 - `tools/live-handshake.mjs` checks the IMAP and SMTP clients' TLS, STARTTLS
   and sign-in handling against a real mail service, without sending mail.
 
