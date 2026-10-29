@@ -146,13 +146,13 @@ notes on each carrier, and how to write and test a new adapter.
 | Resend | yes | mocked API in its documented shapes | Sending: the carrier test of §12.3 and a fresh signed request, through Resend to a real mailbox, both passing; and the signed respond of the AgentMail run. Inbound and status were not run live: the key used can only send. |
 | AgentMail | yes | mocked API in its documented shapes | A signed request with a file, sent from a test AgentMail inbox through the adapter, and the signed respond with a file received back into it: raw message fetched, both files verified against their signed digests. The carrier test of §12.3 inside AgentMail, from the inbox to itself, passing. Inbound was read by polling; webhooks were not run live. |
 | Cloudflare Email | yes, with an example Worker | mocked Worker, using the Worker's own signing code | no |
-| Primitive | yes | mocked API in its documented shapes, refusing every header but its three | no |
+| Primitive | yes | mocked API in its documented shapes, refusing every header but its three | A signed request with a file, from the test-rig mailbox through Resend to a Primitive address, and the signed respond with a file sent back through the adapter: raw message fetched, both files verified against their signed digests, and only `Auto-Submitted` sent to Primitive. The carrier test of §12.3 between two Primitive addresses, passing. Inbound was read by polling; webhooks were not run live. |
 
 Primitive accepts only three custom headers on outbound mail:
 `Auto-Submitted`, `X-Auto-Response-Suppress` and `Precedence`. Its test sends a
 full agent email with the hint headers dropped, and the receiving side still
-delivers it whole, with its file verified and its text matching. Everything an
-agent acts on is in the envelope.
+delivers it whole, with its file verified and its text matching. The live run
+showed the same on real mail. Everything an agent acts on is in the envelope.
 
 ## Conformance
 

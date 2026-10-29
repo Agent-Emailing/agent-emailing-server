@@ -34,6 +34,10 @@ export interface PrimitiveOptions {
   baseUrl?: string;
   fetch?: typeof fetch;
   log?: (line: string) => void;
+  /** Without a webhook: list GET /v1/emails this often. */
+  pollMs?: number;
+  /** When polling, only mail to this address is taken. */
+  address?: string;
 }
 
 interface PrimEmail {
@@ -110,6 +114,37 @@ export class PrimitiveCarrier implements CarrierAdapter {
     const auth: AuthResults | undefined = a ? { spf: a.spf ?? "none", dmarc: a.dmarc ?? "none", dkim: (a.dkimSignatures ?? []).map((d) => ({ domain: d.domain, result: d.result, aligned: d.aligned })) } : undefined;
     return { carrierEventId: eventId, raw, headers: parseMail(raw).headers, attachments: [], auth, receivedAt: email.received_at ?? new Date().toISOString() };
   }
+
+  private timer?: NodeJS.Timeout;
+  private polled = new Set<string>();
+
+  /** Polling, for a server with no public webhook URL: received mail is
+   *  listed with GET /v1/emails, read with GET /v1/emails/{id}, and its raw
+   *  message fetched. */
+  async start(): Promise<void> {
+    if (!this.o.pollMs) return;
+    const since = Date.now() - 60_000;
+    const tick = async () => {
+      try {
+        const list = await apiJson<{ data: (PrimEmail & Record<string, unknown>)[] }>(this.f, `${this.base}/emails?limit=50`, { headers: this.auth, what: "Primitive list emails" });
+        for (const item of [...list.data].reverse()) {
+          if (this.polled.has(item.id)) continue;
+          const at = Date.parse(String(item.received_at ?? item.created_at ?? ""));
+          if (Number.isFinite(at) && at < since) { this.polled.add(item.id); continue; }
+          if (this.o.address && !JSON.stringify(item).toLowerCase().includes(this.o.address.toLowerCase())) { this.polled.add(item.id); continue; }
+          let email: PrimEmail = item;
+          try { email = (await apiJson<{ data: PrimEmail }>(this.f, `${this.base}/emails/${item.id}`, { headers: this.auth, what: "Primitive email" })).data ?? item; } catch { /* the list item is enough */ }
+          const mail = await this.inbound(email, `primitive-email:${item.id}`);
+          for (const h of this.handlers) await h(mail);
+          this.polled.add(item.id);
+        }
+      } catch (e) { this.o.log?.(`primitive poll: ${(e as Error).message}`); }
+    };
+    await tick();
+    this.timer = setInterval(() => void tick(), this.o.pollMs);
+  }
+
+  async close(): Promise<void> { if (this.timer) clearInterval(this.timer); }
 
   async webhook(req: WebhookRequest): Promise<WebhookResponse> {
     if (!this.o.webhookSecret || !verifyTimestamped(req.headers["primitive-signature"], req.body, this.o.webhookSecret)) return { status: 401, body: '{"error":"bad signature"}' };

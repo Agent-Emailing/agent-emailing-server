@@ -43,7 +43,7 @@ export type CarrierConfig =
   | { type: "resend"; apiKeyEnv: string; webhookSecretEnv?: string; pollMs?: number }
   | { type: "agentmail"; apiKeyEnv: string; inboxId: string; webhookSecretEnv?: string; baseUrl?: string; pollMs?: number }
   | { type: "cloudflare"; workerUrl?: string; workerSecretEnv: string; accountId?: string; apiTokenEnv?: string }
-  | { type: "primitive"; apiKeyEnv: string; webhookSecretEnv?: string; endpointId?: string };
+  | { type: "primitive"; apiKeyEnv: string; webhookSecretEnv?: string; endpointId?: string; pollMs?: number; address?: string };
 
 /** A Google service account with domain-wide delegation, acting as the mailbox (XOAUTH2). */
 export interface GoogleOAuthConfig { serviceAccountEnv?: string; serviceAccountFile?: string; subject: string }
@@ -91,7 +91,7 @@ export async function buildCarrier(c: CarrierConfig, baseDir: string, log?: (l: 
     }
     case "primitive": {
       const { PrimitiveCarrier } = await import("../providers/primitive.js");
-      return new PrimitiveCarrier({ apiKey: secret(c.apiKeyEnv, "the Primitive API key"), webhookSecret: optionalSecret(c.webhookSecretEnv), endpointId: c.endpointId, log });
+      return new PrimitiveCarrier({ apiKey: secret(c.apiKeyEnv, "the Primitive API key"), webhookSecret: optionalSecret(c.webhookSecretEnv), endpointId: c.endpointId, pollMs: c.pollMs, address: c.address, log });
     }
   }
 }

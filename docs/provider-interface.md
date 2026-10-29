@@ -74,7 +74,7 @@ this implementation adds them as optional members:
 | `resend` | `email.received` webhook, or polling | `POST /emails` | `GET /emails/{id}`, webhooks | `raw.download_url` | yes (one DKIM result, no domain) |
 | `agentmail` | `message.received` webhook, or polling | `POST /v0/inboxes/{inbox}/messages/send` | webhooks | `GET .../raw` | yes, with the DKIM domain |
 | `cloudflare` | the Worker's `email()` handler posts the raw message | the Worker's `send_email` binding, with raw MIME; or the REST API without file parts | the send result | yes | not given to Workers |
-| `primitive` | `email.received` webhook | `POST /v1/send-mail` | `GET /v1/sent-emails/{id}`, webhooks | inline, or `GET /v1/emails/{id}/raw` | yes, each DKIM signature with its alignment |
+| `primitive` | `email.received` webhook, or polling `GET /v1/emails` | `POST /v1/send-mail` | `GET /v1/sent-emails/{id}`, webhooks | inline, or `GET /v1/emails/{id}/raw` | yes, each DKIM signature with its alignment |
 | `loopback` | in process | in process | in process | yes | set by the test |
 
 Notes on particular carriers:
@@ -110,7 +110,10 @@ Notes on particular carriers:
 - **Primitive.** Only `Auto-Submitted`, `X-Auto-Response-Suppress` and
   `Precedence` may be set. The adapter drops the hint headers of §3.5 and uses
   Primitive's own `in_reply_to` and `references` fields. Everything the agent
-  acts on is in the envelope, so nothing is lost.
+  acts on is in the envelope, so nothing is lost. A new Primitive account may
+  only answer addresses that wrote to it first, so in a first exchange the
+  other side asks first. The adapter answers with `POST /v1/send-mail`, never
+  the reply endpoint, which writes its own subject.
 
 ## Writing an adapter
 
