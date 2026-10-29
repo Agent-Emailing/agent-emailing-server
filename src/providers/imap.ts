@@ -228,4 +228,13 @@ export class ImapClient {
   }
 
   get isClosed(): boolean { return Boolean(this.closed); }
+
+  /** Drop the connection now. A command or IDLE in progress fails at once. */
+  destroy(): void {
+    const e = new ImapError("the IMAP connection was closed by this client");
+    if (!this.closed) this.closed = e;
+    this.waiter?.reject(e);
+    this.waiter = undefined;
+    this.sock?.destroy();
+  }
 }

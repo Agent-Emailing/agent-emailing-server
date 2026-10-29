@@ -105,7 +105,9 @@ export class ImapSmtpCarrier implements CarrierAdapter {
 
   async close(): Promise<void> {
     this.stopping = true;
-    await this.client?.logout();
+    // The loop may be inside IDLE; a second command on the same connection
+    // would wait behind it. Dropping the connection ends the loop at once.
+    this.client?.destroy();
     await this.loop;
   }
 }

@@ -1,0 +1,45 @@
+name: CI
+
+# Every push to main and every pull request:
+#   the secret check, the typecheck, the unit tests, and the 19 Agent Emailing
+#   conformance cases against the library and against the server.
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Secrets
+        run: node tools/check-secrets.mjs --self-test
+
+      - name: Install
+        run: npm ci --no-audit --no-fund
+
+      - name: Typecheck and build
+        run: npm run build
+
+      - name: Unit tests
+        run: node --test "test/*.test.mjs"
+
+      - name: Conformance (19 cases, library and server)
+        run: node conformance/run.mjs
+
+      - name: The Cloudflare Worker example parses
+        run: node --check examples/cloudflare-worker/sig.js
