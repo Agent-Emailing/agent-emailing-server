@@ -50,7 +50,7 @@ You need Node.js 22 or later, a mailbox for the agent, and its IMAP and SMTP
 settings.
 
 ```sh
-git clone https://github.com/jeffrschneider/agent-emailing-server.git
+git clone https://github.com/Agent-Emailing/agent-emailing-server.git
 cd agent-emailing-server
 npm install
 npm run build
