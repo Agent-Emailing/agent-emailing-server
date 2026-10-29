@@ -1,0 +1,17 @@
+name = "agent-emailing-carrier"
+main = "worker.js"
+compatibility_date = "2026-10-01"
+
+# Where the Agent Emailing Server listens. Its /webhooks/cloudflare must be
+# reachable from Cloudflare over HTTPS.
+[vars]
+SERVER_URL = "https://agent-mail.example.org"
+
+# Outbound mail. Restrict the sender to the agent's own address.
+[[send_email]]
+name = "EMAIL"
+allowed_sender_addresses = ["agent@example.org"]
+
+# Then, in the dashboard: Email Routing, a rule for agent@example.org with the
+# action "Send to a Worker", this Worker. And:
+#   wrangler secret put SHARED_SECRET

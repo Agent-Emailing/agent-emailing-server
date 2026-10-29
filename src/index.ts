@@ -14,3 +14,5 @@ export * from "./identity-bridge.js";
 export * from "./receive.js";
 export * from "./tasks.js";
 export type * from "./providers/types.js";
+export * from "./server/server.js";
+export * from "./providers/loopback.js";
