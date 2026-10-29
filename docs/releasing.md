@@ -37,6 +37,9 @@ by hand with the credentials in the environment:
   carrier test inside AgentMail, and deletes the inbox.
 - `tools/live-primitive.mjs` does the same through a Primitive address, with
   the other side asking first, and records which headers went to Primitive.
+- `tools/interop.mjs` (`npm run interop`) runs the quote exchange, the carrier
+  test and a forged quote on every lane between AgentMail, Primitive and Resend,
+  and writes `docs/interop-<date>.md` and `.json`. Run it on demand.
 - `tools/live-handshake.mjs` checks the IMAP and SMTP clients' TLS, STARTTLS
   and sign-in handling against a real mail service, without sending mail.
 

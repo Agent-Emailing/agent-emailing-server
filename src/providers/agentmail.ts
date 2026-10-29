@@ -77,7 +77,7 @@ export class AgentMailCarrier implements CarrierAdapter {
       })),
     };
     const env = mail.attachments.find((a) => a.contentType === ENVELOPE_MEDIA_TYPE);
-    const idem = createHash("sha256").update(env ? env.bytes : Buffer.from(JSON.stringify(body))).digest("hex").slice(0, 48);
+    const idem = createHash("sha256").update(JSON.stringify([mail.from, mail.to, mail.subject])).update(env ? env.bytes : Buffer.from(JSON.stringify(body))).digest("hex").slice(0, 48);
     const r = await apiJson<{ message_id: string; thread_id?: string }>(this.f, `${this.inboxPath()}/messages/send`, {
       method: "POST", what: "AgentMail send",
       headers: { ...this.auth, "content-type": "application/json", "idempotency-key": `ae-${idem}` },
@@ -135,9 +135,15 @@ export class AgentMailCarrier implements CarrierAdapter {
     return { status: 200, body: "{}" };
   }
 
+  private polled = new Set<string>();
+
+  /** Polling, for a server with no public webhook URL. A message's timestamp
+   *  is its sender's Date, in whole seconds, so it can be earlier than the
+   *  moment it arrived: the poller looks back a few minutes behind the newest
+   *  message it has seen, and remembers each message it handed over. */
   async start(): Promise<void> {
     if (!this.o.pollMs) return;
-    this.since = new Date().toISOString();
+    this.since = new Date(Date.now() - 60_000).toISOString();
     const tick = async () => {
       try {
         const u = new URL(`${this.inboxPath()}/messages`);
@@ -146,9 +152,12 @@ export class AgentMailCarrier implements CarrierAdapter {
         u.searchParams.set("labels", "received");
         const list = await apiJson<{ messages: AmMessage[] }>(this.f, u.toString(), { headers: this.auth, what: "AgentMail list" });
         for (const m of list.messages ?? []) {
+          if (this.polled.has(m.message_id)) continue;
           const mail = await this.fetchInbound(m.message_id, `agentmail-msg:${m.inbox_id}:${m.message_id}`);
           for (const h of this.handlers) await h(mail);
-          this.since = m.timestamp ?? m.created_at ?? this.since;
+          this.polled.add(m.message_id);
+          const t = Date.parse(m.timestamp ?? m.created_at ?? "");
+          if (Number.isFinite(t)) this.since = new Date(Math.max(Date.parse(this.since!), t - 5 * 60_000)).toISOString();
         }
       } catch (e) { this.o.log?.(`agentmail poll: ${(e as Error).message}`); }
     };

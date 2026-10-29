@@ -148,6 +148,13 @@ notes on each carrier, and how to write and test a new adapter.
 | Cloudflare Email | yes, with an example Worker | mocked Worker, using the Worker's own signing code | no |
 | Primitive | yes | mocked API in its documented shapes, refusing every header but its three | A signed request with a file, from the test-rig mailbox through Resend to a Primitive address, and the signed respond with a file sent back through the adapter: raw message fetched, both files verified against their signed digests, and only `Auto-Submitted` sent to Primitive. The carrier test of §12.3 between two Primitive addresses, passing. Inbound was read by polling; webhooks were not run live. |
 
+Across providers, `npm run interop` (tools/interop.mjs) runs a quote request
+as four emails in one thread on every lane between AgentMail, Primitive and
+Resend, with the carrier test and a forged quote on each. The results of the
+last run are in [docs/interop-2026-10-29.md](docs/interop-2026-10-29.md): every
+lane that could run passed every check; the two lanes into Resend could not run,
+because the Resend key can only send.
+
 Primitive accepts only three custom headers on outbound mail:
 `Auto-Submitted`, `X-Auto-Response-Suppress` and `Precedence`. Its test sends a
 full agent email with the hint headers dropped, and the receiving side still

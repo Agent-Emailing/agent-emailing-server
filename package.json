@@ -30,7 +30,8 @@
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "test": "npm run build && node --test \"test/*.test.mjs\"",
     "conformance": "npm run build && node conformance/run.mjs",
-    "start": "node dist/server/cli.js"
+    "start": "node dist/server/cli.js",
+    "interop": "npm run build && node tools/interop.mjs"
   },
   "devDependencies": {
     "@types/node": "^22.10.0",

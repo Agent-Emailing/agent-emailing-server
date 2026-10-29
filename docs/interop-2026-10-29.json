@@ -1,0 +1,616 @@
+{
+  "date": "2026-10-29",
+  "started_at": "2026-10-29T19:06:39.216Z",
+  "use_case": "Requesting a quote, as four emails in one thread",
+  "lanes": [
+    {
+      "lane": "AgentMail → Primitive",
+      "buyer_carrier": "AgentMail",
+      "supplier_carrier": "Primitive",
+      "emails": [
+        {
+          "email": 1,
+          "kind": "request",
+          "direction": "buyer → supplier",
+          "delivered": true,
+          "seconds": 3.4,
+          "signature": "pass",
+          "name_card": "pass",
+          "text_and_subject": "pass",
+          "subject": "Request a quote — request",
+          "files": "pass",
+          "task_state": "opens the task",
+          "headers_survived": [
+            "Auto-Submitted",
+            "Agent-Emailing-Version",
+            "Agent-Messaging-Type",
+            "Agent-Messaging-Context"
+          ],
+          "auth": {
+            "spf": "pass",
+            "dmarc": "pass",
+            "dkim": [
+              "agentmail.to:pass (aligned)",
+              "amazonses.com:pass"
+            ]
+          },
+          "message_id": "<010001a1890ea1c0-0798c33c-5833-49ea-a1ed-76a19110656c-000000@email.amazonses.com>",
+          "references": []
+        },
+        {
+          "email": 2,
+          "kind": "needs your input",
+          "direction": "supplier → buyer",
+          "delivered": true,
+          "seconds": 9.6,
+          "signature": "pass",
+          "name_card": "pass",
+          "text_and_subject": "pass",
+          "subject": "Re: Request a quote — needs your input",
+          "files": "none attached",
+          "task_state": "pass (input_required)",
+          "headers_survived": [
+            "Auto-Submitted"
+          ],
+          "auth": {
+            "spf": "pass",
+            "dmarc": "pass",
+            "dkim": [
+              "primitive.email:pass (aligned)"
+            ]
+          },
+          "message_id": "<primitive-direct-5dabec40-6952-40d2-8ce8-41e42891e790@green-jay.primitive.email>",
+          "in_reply_to": "<010001a1890ea1c0-0798c33c-5833-49ea-a1ed-76a19110656c-000000@email.amazonses.com>",
+          "references": [
+            "<010001a1890ea1c0-0798c33c-5833-49ea-a1ed-76a19110656c-000000@email.amazonses.com>"
+          ]
+        },
+        {
+          "email": 3,
+          "kind": "answer",
+          "direction": "buyer → supplier",
+          "delivered": true,
+          "seconds": 3.8,
+          "signature": "pass",
+          "name_card": "pass",
+          "text_and_subject": "pass",
+          "subject": "Re: Request a quote — answer",
+          "files": "none attached",
+          "task_state": "pass (working)",
+          "headers_survived": [
+            "Auto-Submitted",
+            "Agent-Emailing-Version",
+            "Agent-Messaging-Type",
+            "Agent-Messaging-Task",
+            "Agent-Messaging-Context"
+          ],
+          "auth": {
+            "spf": "pass",
+            "dmarc": "pass",
+            "dkim": [
+              "agentmail.to:pass (aligned)",
+              "amazonses.com:pass"
+            ]
+          },
+          "message_id": "<010001a1890edb0a-c1a61e89-6ed9-4804-ab48-dcd96a85ee18-000000@email.amazonses.com>",
+          "in_reply_to": "<primitive-direct-5dabec40-6952-40d2-8ce8-41e42891e790@green-jay.primitive.email>",
+          "references": [
+            "<010001a1890ea1c0-0798c33c-5833-49ea-a1ed-76a19110656c-000000@email.amazonses.com>",
+            "<primitive-direct-5dabec40-6952-40d2-8ce8-41e42891e790@green-jay.primitive.email>"
+          ]
+        },
+        {
+          "email": 4,
+          "kind": "done",
+          "direction": "supplier → buyer",
+          "delivered": true,
+          "seconds": 12.5,
+          "signature": "pass",
+          "name_card": "pass",
+          "text_and_subject": "pass",
+          "subject": "Re: Request a quote — done",
+          "files": "pass",
+          "task_state": "pass (completed)",
+          "headers_survived": [
+            "Auto-Submitted"
+          ],
+          "auth": {
+            "spf": "pass",
+            "dmarc": "pass",
+            "dkim": [
+              "primitive.email:pass (aligned)"
+            ]
+          },
+          "message_id": "<primitive-direct-8919b06c-4f0d-4971-aec9-13f06b41f125@green-jay.primitive.email>",
+          "in_reply_to": "<010001a1890edb0a-c1a61e89-6ed9-4804-ab48-dcd96a85ee18-000000@email.amazonses.com>",
+          "references": [
+            "<010001a1890ea1c0-0798c33c-5833-49ea-a1ed-76a19110656c-000000@email.amazonses.com>",
+            "<primitive-direct-5dabec40-6952-40d2-8ce8-41e42891e790@green-jay.primitive.email>",
+            "<010001a1890edb0a-c1a61e89-6ed9-4804-ab48-dcd96a85ee18-000000@email.amazonses.com>"
+          ]
+        }
+      ],
+      "notes": [],
+      "buyer_address": "ae-interop-317bd52d@agentmail.to",
+      "supplier_address": "ae-interop-supplier-18f0d1@green-jay.primitive.email",
+      "threading": "kept",
+      "supplier_task_final": "completed",
+      "buyer_task_final": "completed",
+      "forgery": {
+        "arrived": true,
+        "refused_by_server": "pass (IDENTITY_MISMATCH, silent)",
+        "person_view": "pass (FAIL shown)"
+      },
+      "carrier_test": "pass"
+    },
+    {
+      "lane": "Primitive → AgentMail",
+      "buyer_carrier": "Primitive",
+      "supplier_carrier": "AgentMail",
+      "emails": [
+        {
+          "email": 1,
+          "kind": "request",
+          "direction": "buyer → supplier",
+          "delivered": true,
+          "seconds": 6.6,
+          "signature": "pass",
+          "name_card": "pass",
+          "text_and_subject": "pass",
+          "subject": "Request a quote — request",
+          "files": "pass",
+          "task_state": "opens the task",
+          "headers_survived": [
+            "Auto-Submitted"
+          ],
+          "auth": {
+            "spf": "pass",
+            "dmarc": "pass",
+            "dkim": [
+              "primitive.email:pass (aligned)"
+            ]
+          },
+          "message_id": "<primitive-direct-dce50196-056f-4987-b8a1-2416a65ae297@green-jay.primitive.email>",
+          "references": []
+        },
+        {
+          "email": 2,
+          "kind": "needs your input",
+          "direction": "supplier → buyer",
+          "delivered": true,
+          "seconds": 2.8,
+          "signature": "pass",
+          "name_card": "pass",
+          "text_and_subject": "pass",
+          "subject": "Re: Request a quote — needs your input",
+          "files": "none attached",
+          "task_state": "pass (input_required)",
+          "headers_survived": [
+            "Auto-Submitted",
+            "Agent-Emailing-Version",
+            "Agent-Messaging-Type",
+            "Agent-Messaging-Task",
+            "Agent-Messaging-Context"
+          ],
+          "auth": {
+            "spf": "pass",
+            "dmarc": "pass",
+            "dkim": [
+              "agentmail.to:pass (aligned)",
+              "amazonses.com:pass"
+            ]
+          },
+          "message_id": "<010001a1890f6dc9-b8eac8e9-7984-4aca-bf8c-8b619635fa3f-000000@email.amazonses.com>",
+          "in_reply_to": "<primitive-direct-dce50196-056f-4987-b8a1-2416a65ae297@green-jay.primitive.email>",
+          "references": [
+            "<primitive-direct-dce50196-056f-4987-b8a1-2416a65ae297@green-jay.primitive.email>"
+          ]
+        },
+        {
+          "email": 3,
+          "kind": "answer",
+          "direction": "buyer → supplier",
+          "delivered": true,
+          "seconds": 11.7,
+          "signature": "pass",
+          "name_card": "pass",
+          "text_and_subject": "pass",
+          "subject": "Re: Request a quote — answer",
+          "files": "none attached",
+          "task_state": "pass (working)",
+          "headers_survived": [
+            "Auto-Submitted"
+          ],
+          "auth": {
+            "spf": "pass",
+            "dmarc": "pass",
+            "dkim": [
+              "primitive.email:pass (aligned)"
+            ]
+          },
+          "message_id": "<primitive-direct-5ee6a9c9-a0ce-407e-81a3-82930e597583@green-jay.primitive.email>",
+          "in_reply_to": "<010001a1890f6dc9-b8eac8e9-7984-4aca-bf8c-8b619635fa3f-000000@email.amazonses.com>",
+          "references": [
+            "<010001a1890f6dc9-b8eac8e9-7984-4aca-bf8c-8b619635fa3f-000000@email.amazonses.com>"
+          ]
+        },
+        {
+          "email": 4,
+          "kind": "done",
+          "direction": "supplier → buyer",
+          "delivered": true,
+          "seconds": 2.4,
+          "signature": "pass",
+          "name_card": "pass",
+          "text_and_subject": "pass",
+          "subject": "Re: Request a quote — done",
+          "files": "pass",
+          "task_state": "pass (completed)",
+          "headers_survived": [
+            "Auto-Submitted",
+            "Agent-Emailing-Version",
+            "Agent-Messaging-Type",
+            "Agent-Messaging-Task",
+            "Agent-Messaging-Context"
+          ],
+          "auth": {
+            "spf": "pass",
+            "dmarc": "pass",
+            "dkim": [
+              "agentmail.to:pass (aligned)",
+              "amazonses.com:pass"
+            ]
+          },
+          "message_id": "<010001a1890fa9fa-7aec92ad-c686-4737-939e-d95a19d2ca6a-000000@email.amazonses.com>",
+          "in_reply_to": "<primitive-direct-5ee6a9c9-a0ce-407e-81a3-82930e597583@green-jay.primitive.email>",
+          "references": [
+            "<010001a1890f6dc9-b8eac8e9-7984-4aca-bf8c-8b619635fa3f-000000@email.amazonses.com>",
+            "<primitive-direct-5ee6a9c9-a0ce-407e-81a3-82930e597583@green-jay.primitive.email>"
+          ]
+        }
+      ],
+      "notes": [],
+      "buyer_address": "ae-interop-buyer-781928@green-jay.primitive.email",
+      "supplier_address": "ae-interop-317bd52d@agentmail.to",
+      "threading": "kept",
+      "supplier_task_final": "completed",
+      "buyer_task_final": "completed",
+      "forgery": {
+        "arrived": true,
+        "refused_by_server": "pass (IDENTITY_MISMATCH, silent)",
+        "person_view": "pass (FAIL shown)"
+      },
+      "carrier_test": "pass"
+    },
+    {
+      "lane": "Resend → AgentMail",
+      "buyer_carrier": "Resend",
+      "supplier_carrier": "AgentMail",
+      "emails": [
+        {
+          "email": 1,
+          "kind": "request",
+          "direction": "buyer → supplier",
+          "delivered": true,
+          "seconds": 6.7,
+          "signature": "pass",
+          "name_card": "pass",
+          "text_and_subject": "pass",
+          "subject": "Request a quote — request",
+          "files": "pass",
+          "task_state": "opens the task",
+          "headers_survived": [
+            "Auto-Submitted",
+            "Agent-Emailing-Version",
+            "Agent-Messaging-Type",
+            "Agent-Messaging-Context"
+          ],
+          "auth": {
+            "spf": "pass",
+            "dmarc": "pass",
+            "dkim": [
+              ":pass"
+            ]
+          },
+          "message_id": "<010001a1890ff4db-444c86b6-57cf-43f6-a196-0ad5416ff174-000000@email.amazonses.com>",
+          "references": []
+        },
+        {
+          "email": 2,
+          "kind": "needs your input",
+          "direction": "supplier → buyer",
+          "delivered": true,
+          "seconds": 6,
+          "signature": "pass",
+          "name_card": "pass",
+          "text_and_subject": "pass",
+          "subject": "Re: Request a quote — needs your input",
+          "files": "none attached",
+          "task_state": "pass (input_required)",
+          "headers_survived": [
+            "Auto-Submitted",
+            "Agent-Emailing-Version",
+            "Agent-Messaging-Type",
+            "Agent-Messaging-Task",
+            "Agent-Messaging-Context"
+          ],
+          "auth": {
+            "spf": "pass",
+            "dmarc": "pass",
+            "dkim": [
+              "agentmail.to:pass (aligned)",
+              "amazonses.com:pass"
+            ]
+          },
+          "message_id": "<010001a189100d2f-8a89d224-989f-48dd-beaa-57f1065eafe7-000000@email.amazonses.com>",
+          "in_reply_to": "<010001a1890ff4db-444c86b6-57cf-43f6-a196-0ad5416ff174-000000@email.amazonses.com>",
+          "references": [
+            "<010001a1890ff4db-444c86b6-57cf-43f6-a196-0ad5416ff174-000000@email.amazonses.com>"
+          ]
+        },
+        {
+          "email": 3,
+          "kind": "answer",
+          "direction": "buyer → supplier",
+          "delivered": true,
+          "seconds": 13.3,
+          "signature": "pass",
+          "name_card": "pass",
+          "text_and_subject": "pass",
+          "subject": "Re: Request a quote — answer",
+          "files": "none attached",
+          "task_state": "pass (working)",
+          "headers_survived": [
+            "Auto-Submitted",
+            "Agent-Emailing-Version",
+            "Agent-Messaging-Type",
+            "Agent-Messaging-Task",
+            "Agent-Messaging-Context"
+          ],
+          "auth": {
+            "spf": "pass",
+            "dmarc": "pass",
+            "dkim": [
+              ":pass"
+            ]
+          },
+          "message_id": "<010001a189102ce6-53f99735-fa53-41da-8ca0-285c259660aa-000000@email.amazonses.com>",
+          "in_reply_to": "<010001a189100d2f-8a89d224-989f-48dd-beaa-57f1065eafe7-000000@email.amazonses.com>",
+          "references": [
+            "<010001a189100d2f-8a89d224-989f-48dd-beaa-57f1065eafe7-000000@email.amazonses.com>"
+          ]
+        },
+        {
+          "email": 4,
+          "kind": "done",
+          "direction": "supplier → buyer",
+          "delivered": true,
+          "seconds": 4.9,
+          "signature": "pass",
+          "name_card": "pass",
+          "text_and_subject": "pass",
+          "subject": "Re: Request a quote — done",
+          "files": "pass",
+          "task_state": "pass (completed)",
+          "headers_survived": [
+            "Auto-Submitted",
+            "Agent-Emailing-Version",
+            "Agent-Messaging-Type",
+            "Agent-Messaging-Task",
+            "Agent-Messaging-Context"
+          ],
+          "auth": {
+            "spf": "pass",
+            "dmarc": "pass",
+            "dkim": [
+              "agentmail.to:pass (aligned)",
+              "amazonses.com:pass"
+            ]
+          },
+          "message_id": "<010001a1891060e5-853a2440-8076-4296-98a4-3353d51e1c61-000000@email.amazonses.com>",
+          "in_reply_to": "<010001a189102ce6-53f99735-fa53-41da-8ca0-285c259660aa-000000@email.amazonses.com>",
+          "references": [
+            "<010001a189100d2f-8a89d224-989f-48dd-beaa-57f1065eafe7-000000@email.amazonses.com>",
+            "<010001a189102ce6-53f99735-fa53-41da-8ca0-285c259660aa-000000@email.amazonses.com>"
+          ]
+        }
+      ],
+      "notes": [],
+      "buyer_address": "test-rig+ae-interop-buyer-63c420@agentmesh.ai",
+      "supplier_address": "ae-interop-317bd52d@agentmail.to",
+      "threading": "kept",
+      "supplier_task_final": "completed",
+      "buyer_task_final": "completed",
+      "forgery": {
+        "arrived": true,
+        "refused_by_server": "pass (IDENTITY_MISMATCH, silent)",
+        "person_view": "pass (FAIL shown)"
+      },
+      "carrier_test": "pass"
+    },
+    {
+      "lane": "Resend → Primitive",
+      "buyer_carrier": "Resend",
+      "supplier_carrier": "Primitive",
+      "emails": [
+        {
+          "email": 1,
+          "kind": "request",
+          "direction": "buyer → supplier",
+          "delivered": true,
+          "seconds": 3.4,
+          "signature": "pass",
+          "name_card": "pass",
+          "text_and_subject": "pass",
+          "subject": "Request a quote — request",
+          "files": "pass",
+          "task_state": "opens the task",
+          "headers_survived": [
+            "Auto-Submitted",
+            "Agent-Emailing-Version",
+            "Agent-Messaging-Type",
+            "Agent-Messaging-Context"
+          ],
+          "auth": {
+            "spf": "pass",
+            "dmarc": "pass",
+            "dkim": [
+              "agentmesh.ai:pass (aligned)",
+              "amazonses.com:pass"
+            ]
+          },
+          "message_id": "<010001a18910a518-94440607-9ed8-4f55-8d7c-84aaf44ed73e-000000@email.amazonses.com>",
+          "references": []
+        },
+        {
+          "email": 2,
+          "kind": "needs your input",
+          "direction": "supplier → buyer",
+          "delivered": true,
+          "seconds": 5.2,
+          "signature": "pass",
+          "name_card": "pass",
+          "text_and_subject": "pass",
+          "subject": "Re: Request a quote — needs your input",
+          "files": "none attached",
+          "task_state": "pass (input_required)",
+          "headers_survived": [
+            "Auto-Submitted"
+          ],
+          "auth": {
+            "spf": "pass",
+            "dmarc": "pass",
+            "dkim": [
+              "primitive.email:pass (aligned)"
+            ]
+          },
+          "message_id": "<primitive-direct-d8d42473-c89a-4590-aa4d-07a478c81778@green-jay.primitive.email>",
+          "in_reply_to": "<010001a18910a518-94440607-9ed8-4f55-8d7c-84aaf44ed73e-000000@email.amazonses.com>",
+          "references": [
+            "<010001a18910a518-94440607-9ed8-4f55-8d7c-84aaf44ed73e-000000@email.amazonses.com>"
+          ]
+        },
+        {
+          "email": 3,
+          "kind": "answer",
+          "direction": "buyer → supplier",
+          "delivered": true,
+          "seconds": 4.9,
+          "signature": "pass",
+          "name_card": "pass",
+          "text_and_subject": "pass",
+          "subject": "Re: Request a quote — answer",
+          "files": "none attached",
+          "task_state": "pass (working)",
+          "headers_survived": [
+            "Auto-Submitted",
+            "Agent-Emailing-Version",
+            "Agent-Messaging-Type",
+            "Agent-Messaging-Task",
+            "Agent-Messaging-Context"
+          ],
+          "auth": {
+            "spf": "pass",
+            "dmarc": "pass",
+            "dkim": [
+              "agentmesh.ai:pass (aligned)",
+              "amazonses.com:pass"
+            ]
+          },
+          "message_id": "<010001a18910ce4a-dcca328b-b5d8-4aac-8c30-988f7bf3e1f7-000000@email.amazonses.com>",
+          "in_reply_to": "<primitive-direct-d8d42473-c89a-4590-aa4d-07a478c81778@green-jay.primitive.email>",
+          "references": [
+            "<primitive-direct-d8d42473-c89a-4590-aa4d-07a478c81778@green-jay.primitive.email>"
+          ]
+        },
+        {
+          "email": 4,
+          "kind": "done",
+          "direction": "supplier → buyer",
+          "delivered": true,
+          "seconds": 5.2,
+          "signature": "pass",
+          "name_card": "pass",
+          "text_and_subject": "pass",
+          "subject": "Re: Request a quote — done",
+          "files": "pass",
+          "task_state": "pass (completed)",
+          "headers_survived": [
+            "Auto-Submitted"
+          ],
+          "auth": {
+            "spf": "pass",
+            "dmarc": "pass",
+            "dkim": [
+              "primitive.email:pass (aligned)"
+            ]
+          },
+          "message_id": "<primitive-direct-64f64961-fa9d-48e2-b58d-9894bfdd795c@green-jay.primitive.email>",
+          "in_reply_to": "<010001a18910ce4a-dcca328b-b5d8-4aac-8c30-988f7bf3e1f7-000000@email.amazonses.com>",
+          "references": [
+            "<primitive-direct-d8d42473-c89a-4590-aa4d-07a478c81778@green-jay.primitive.email>",
+            "<010001a18910ce4a-dcca328b-b5d8-4aac-8c30-988f7bf3e1f7-000000@email.amazonses.com>"
+          ]
+        }
+      ],
+      "notes": [],
+      "buyer_address": "test-rig+ae-interop-buyer-8cec7e@agentmesh.ai",
+      "supplier_address": "ae-interop-supplier-8cec7e@green-jay.primitive.email",
+      "threading": "kept",
+      "supplier_task_final": "completed",
+      "buyer_task_final": "completed",
+      "forgery": {
+        "arrived": true,
+        "refused_by_server": "pass (IDENTITY_MISMATCH, silent)",
+        "person_view": "pass (FAIL shown)"
+      },
+      "carrier_test": "pass"
+    }
+  ],
+  "not_run": [
+    {
+      "lane": "AgentMail → Resend",
+      "reason": "Resend's key can only send, so a supplier on Resend cannot receive the request. Not run."
+    },
+    {
+      "lane": "Primitive → Resend",
+      "reason": "Resend's key can only send, so a supplier on Resend cannot receive the request. Not run."
+    }
+  ],
+  "created": {
+    "agentmail_inboxes": [
+      "ae-interop-317bd52d@agentmail.to"
+    ],
+    "primitive_addresses": [
+      "ae-interop-supplier-18f0d1@green-jay.primitive.email",
+      "ae-interop-ct-18f0d1@green-jay.primitive.email",
+      "ae-interop-buyer-781928@green-jay.primitive.email",
+      "ae-interop-ct-sender-781928@green-jay.primitive.email",
+      "ae-interop-supplier-8cec7e@green-jay.primitive.email",
+      "ae-interop-ct-8cec7e@green-jay.primitive.email"
+    ],
+    "resend_party_addresses": [
+      "test-rig+ae-interop-buyer-63c420@agentmesh.ai",
+      "test-rig+ae-interop-ct-sender-63c420@agentmesh.ai",
+      "test-rig+ae-interop-buyer-8cec7e@agentmesh.ai",
+      "test-rig+ae-interop-ct-sender-8cec7e@agentmesh.ai"
+    ]
+  },
+  "deleted": [
+    "AgentMail inbox ae-interop-317bd52d@agentmail.to: HTTP 202",
+    "Primitive stored email 02efa503-4ada-4475-8c5e-e4e9989afabc: HTTP 200",
+    "Primitive stored email 6f14133b-3d9e-421f-bbb6-5d96c3736805: HTTP 200",
+    "Primitive stored email 165c3dd4-2b07-4948-924d-fb895859edef: HTTP 200",
+    "Primitive stored email e9495ab7-b45f-4aaa-a174-ec59ac374b2f: HTTP 200",
+    "Primitive stored email 8aea2737-fc91-4fbc-8925-f9a628b3bd7a: HTTP 200",
+    "Primitive stored email 57d65eff-faa2-451d-9fe8-a5b3ac9a0f53: HTTP 200",
+    "Primitive stored email f17ffd70-971c-4e0b-8cbc-75c955e126b7: HTTP 200",
+    "Primitive stored email 4a902fb5-4104-4b25-bdf6-d56fd6982b5c: HTTP 200",
+    "Primitive stored email 4f566d98-7dad-4f4f-8aa3-fafc576c5866: HTTP 200"
+  ],
+  "left_behind": [
+    "Mail received by the Resend party's mailbox stays there: the service account may only read it.",
+    "The providers' records of sent mail (Resend, AgentMail, Primitive) stay with the providers."
+  ],
+  "finished_at": "2026-10-29T19:09:27.168Z"
+}

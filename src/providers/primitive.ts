@@ -81,7 +81,7 @@ export class PrimitiveCarrier implements CarrierAdapter {
       })),
     };
     const env = mail.attachments.find((a) => a.contentType === ENVELOPE_MEDIA_TYPE);
-    const idem = createHash("sha256").update(env ? env.bytes : Buffer.from(JSON.stringify(body))).digest("hex").slice(0, 48);
+    const idem = createHash("sha256").update(JSON.stringify([mail.from, mail.to, mail.subject])).update(env ? env.bytes : Buffer.from(JSON.stringify(body))).digest("hex").slice(0, 48);
     const r = await apiJson<{ data: { id: string; message_id?: string } }>(this.f, `${this.base}/send-mail`, {
       method: "POST", what: "Primitive send",
       headers: { ...this.auth, "content-type": "application/json", "idempotency-key": `ae-${idem}` },

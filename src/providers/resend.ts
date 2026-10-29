@@ -79,7 +79,7 @@ export class ResendCarrier implements CarrierAdapter {
     };
     // The same email sent twice (a retry) is sent once.
     const env = mail.attachments.find((a) => a.contentType === ENVELOPE_MEDIA_TYPE);
-    const idem = createHash("sha256").update(env ? env.bytes : Buffer.from(JSON.stringify(body))).digest("hex").slice(0, 48);
+    const idem = createHash("sha256").update(JSON.stringify([mail.from, mail.to, mail.subject])).update(env ? env.bytes : Buffer.from(JSON.stringify(body))).digest("hex").slice(0, 48);
     const r = await apiJson<{ id: string }>(this.f, `${this.base}/emails`, {
       method: "POST", what: "Resend send",
       headers: { ...this.auth, "content-type": "application/json", "idempotency-key": `ae-${idem}` },
