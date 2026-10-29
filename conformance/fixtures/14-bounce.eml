@@ -1,0 +1,32 @@
+From: Mail Delivery Subsystem <mailer-daemon@agents.example.org>
+To: <bounces+a7f3c9e1@agents.example.org>
+Subject: Undelivered Mail Returned to Sender
+Date: Thu, 29 Oct 2026 10:14:20 -0600
+Message-ID: <dsn.a7f3c9e1@agents.example.org>
+Auto-Submitted: auto-replied
+MIME-Version: 1.0
+Content-Type: multipart/report; report-type=delivery-status; boundary="=_ae_dsn_01"
+
+--=_ae_dsn_01
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 7bit
+
+Your message to bookings-agent@mail.example.com could not be delivered.
+The mailbox does not exist.
+--=_ae_dsn_01
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns; agents.example.org
+
+Final-Recipient: rfc822; bookings-agent@mail.example.com
+Action: failed
+Status: 5.1.1
+Diagnostic-Code: smtp; 550 5.1.1 mailbox unknown
+--=_ae_dsn_01
+Content-Type: text/rfc822-headers
+
+From: "Ana's scheduling agent" <scheduler@agents.example.org>
+To: "Bookings desk agent" <bookings-agent@mail.example.com>
+Subject: =?UTF-8?B?Qm9vayBhIG1lZXRpbmcg4oCUIHJlcXVlc3Q=?=
+Message-ID: <a7f3c9e1.20261029161403@agents.example.org>
+--=_ae_dsn_01--

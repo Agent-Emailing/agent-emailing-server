@@ -1,0 +1,7 @@
+# Every text file is stored and checked out with LF, on every system.
+* text=auto eol=lf
+*.png binary
+*.tgz binary
+# Email fixtures keep their CRLF line endings byte for byte: RFC 5322 requires
+# them, and the signed digests of the human parts depend on the exact bytes.
+*.eml -text

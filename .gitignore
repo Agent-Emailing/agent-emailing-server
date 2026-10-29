@@ -1,0 +1,13 @@
+node_modules/
+dist/
+*.tgz
+coverage/
+
+# A running server's own files: its state, keys and settings.
+.state/
+state/
+*.seed
+.env
+.env.*
+!.env.example
+config.local.json

@@ -1,0 +1,52 @@
+From: "Ana's scheduling agent" <scheduler@agents.example.org>
+To: "Bookings desk agent" <bookings-agent@mail.example.com>
+Subject: =?UTF-8?B?UmU6IEJvb2sgYSBtZWV0aW5nIOKAlCBhbnN3ZXI=?=
+Date: Thu, 29 Oct 2026 10:19:05 -0600
+Message-ID: <b81c4d02.20261029161905@agents.example.org>
+In-Reply-To: <0e5d2b77-c1a4-4f0e-9b3a-5c6d7e8f9a0b@mail.example.com>
+References: <a7f3c9e1.20261029161403@agents.example.org> <0e5d2b77-c1a4-4f0e-9b3a-5c6d7e8f9a0b@mail.example.com>
+Auto-Submitted: auto-generated
+Agent-Emailing-Version: 0.2.0
+Agent-Messaging-Type: request
+Agent-Messaging-Task: 019a3f1e-5c3a-7d10-8e2f-4a5b6c7d8e01
+Agent-Messaging-Context: 019a3f1c-7b2e-7c41-9a6d-3e5f0b1c2d00
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="=_ae_r3_b81c4d02"
+
+--=_ae_r3_b81c4d02
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 7bit
+
+Answer to a question from Scheduler.ana@example.org, acting for Ana Lima, to Bookings.desk@example.com.
+
+Asked for: Book a meeting
+Message: Tuesday 3 November at 10:00, please.
+Handed over: nothing
+What happens next: Bookings.desk@example.com continues the work with this answer. Its reply will arrive in this thread.
+
+--
+Generated from the signed Agent Emailing envelope (envelope.json).
+Agents act only on the envelope. Software that checks Agent Emailing
+confirms that this text matches it.
+--=_ae_r3_b81c4d02
+Content-Type: application/vnd.agentmessaging.envelope+json; charset=utf-8
+Content-Disposition: attachment; filename="envelope.json"
+Content-Transfer-Encoding: base64
+
+eyJ2IjoiMC4zLjAiLCJpZCI6IjAxOWEzZjIwLTkxYjQtN2YyMi1hMGMxLTJkM2U0ZjVhNmIwMyIs
+InR5cGUiOiJyZXF1ZXN0IiwidHMiOiIyMDI2LTEwLTI5VDE2OjE5OjA1LjAwMFoiLCJmcm9tIjoi
+VUJNQkg0Qks2RUlIUUZWTUhMU0FCRlNRWEIzSlhVRlpPWFZaUVRJRVJPMzNBRDRISEFJM0Q3UVAi
+LCJ0byI6IlVBSVVLR0JJWFEzVVNYT1lKUUlGUk5BUFhUN1NKU0ZPREJIR0JBTElSNEtEVlZTVkNM
+T1k3TFFGIiwidGFza19pZCI6IjAxOWEzZjFlLTVjM2EtN2QxMC04ZTJmLTRhNWI2YzdkOGUwMSIs
+ImNvbnRleHRfaWQiOiIwMTlhM2YxYy03YjJlLTdjNDEtOWE2ZC0zZTVmMGIxYzJkMDAiLCJ0cmFj
+ZSI6eyJ0cmFjZV9pZCI6IjdkM2UxZjBhOWIyYzRkNWU4ZjZhMWIyYzNkNGU1ZjYwIiwic3Bhbl9p
+ZCI6ImM5ZDBlMWYyYTNiNGM1ZDYiLCJwYXJlbnRfc3Bhbl9pZCI6ImI3YzhkOWUwZjFhMmIzYzQi
+fSwicGF5bG9hZCI6eyJvZmZlcmluZyI6ImJvb2stbWVldGluZyIsInRleHQiOiJUdWVzZGF5IDMg
+Tm92ZW1iZXIgYXQgMTA6MDAsIHBsZWFzZS4iLCJpbnB1dCI6eyJzbG90IjoiMjAyNi0xMS0wM1Qx
+NzowMDowMFoifX0sIm1ldGEiOnsiYWdlbnRfZW1haWxpbmciOnsidiI6IjAuMi4wIiwib2ZmZXJp
+bmdfbmFtZSI6IkJvb2sgYSBtZWV0aW5nIiwic3ViamVjdCI6IlJlOiBCb29rIGEgbWVldGluZyDi
+gJQgYW5zd2VyIiwiaHVtYW5fdGV4dCI6InNoYTI1Njo1YmMxZGFlYWQ4MmRlOGUzMjQ1YzU3ODZh
+OWRmZWQ3ODhiMjE0NzE2ZTBkOGZlMTAyNDBiZmU3NzQ4OTZhMDE3In19LCJzaWciOiJpMTkxbTRn
+N2NaVjJLRFZ2V21XemNZbkc3WEdFQjlyN0x0VHNEXzc1enVpeDBpa24tRF9YcjZEY3BjdnFmZE53
+Y1l6UWM0QU5hV2c2MTNLY3FqOXVDUSJ9
+--=_ae_r3_b81c4d02--

@@ -1,0 +1,72 @@
+From: "Ana's scheduling agent" <scheduler@agents.example.org>
+To: "Third party" <someone@example.net>
+Subject: =?UTF-8?B?Qm9vayBhIG1lZXRpbmcg4oCUIHJlcXVlc3Q=?=
+Date: Thu, 29 Oct 2026 10:14:03 -0600
+Message-ID: <a7f3c9e1.20261029161403@agents.example.org>
+Auto-Submitted: auto-generated
+Agent-Emailing-Version: 0.2.0
+Agent-Messaging-Type: request
+Agent-Messaging-Context: 019a3f1c-7b2e-7c41-9a6d-3e5f0b1c2d00
+Resent-From: <bookings-agent@mail.example.com>
+Resent-To: <someone@example.net>
+Resent-Date: Thu, 29 Oct 2026 11:30:00 -0600
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="=_ae_r1_a7f3c9e1"
+
+--=_ae_r1_a7f3c9e1
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 7bit
+
+Request from Scheduler.ana@example.org, acting for Ana Lima, to Bookings.desk@example.com.
+
+Asked for: Book a meeting
+Message: Please book 30 minutes with Ana Lima next week. Her free times are in the attached agenda.
+Handed over: agenda.txt (text/plain, 284 bytes)
+Price: up to 2.00 USD
+Answer needed by: Friday 30 October 2026, 11:00 Mountain time
+What happens next: Bookings.desk@example.com will do the work or ask for what it needs. Its answer will arrive in this thread.
+
+--
+Generated from the signed Agent Emailing envelope (envelope.json).
+Agents act only on the envelope. Software that checks Agent Emailing
+confirms that this text matches it.
+--=_ae_r1_a7f3c9e1
+Content-Type: application/vnd.agentmessaging.envelope+json; charset=utf-8
+Content-Disposition: attachment; filename="envelope.json"
+Content-Transfer-Encoding: base64
+
+eyJ2IjoiMC4zLjAiLCJpZCI6IjAxOWEzZjFjLTdiMmUtN2M0MS05YTZkLTNlNWYwYjFjMmQwMSIs
+InR5cGUiOiJyZXF1ZXN0IiwidHMiOiIyMDI2LTEwLTI5VDE2OjE0OjAzLjAwMFoiLCJmcm9tIjoi
+VUJNQkg0Qks2RUlIUUZWTUhMU0FCRlNRWEIzSlhVRlpPWFZaUVRJRVJPMzNBRDRISEFJM0Q3UVAi
+LCJ0byI6IlVBSVVLR0JJWFEzVVNYT1lKUUlGUk5BUFhUN1NKU0ZPREJIR0JBTElSNEtEVlZTVkNM
+T1k3TFFGIiwidHJhY2UiOnsidHJhY2VfaWQiOiI3ZDNlMWYwYTliMmM0ZDVlOGY2YTFiMmMzZDRl
+NWY2MCIsInNwYW5faWQiOiJhMWIyYzNkNGU1ZjYwNzE4IiwicGFyZW50X3NwYW5faWQiOm51bGx9
+LCJjb250ZXh0X2lkIjoiMDE5YTNmMWMtN2IyZS03YzQxLTlhNmQtM2U1ZjBiMWMyZDAwIiwiYnVk
+Z2V0Ijp7ImRlYWRsaW5lIjoiMjAyNi0xMC0zMFQxNzowMDowMFoiLCJyZXZpc2lvbiI6MCwiY29z
+dF9jZWlsaW5nIjp7ImFtb3VudF9taWNybyI6MjAwMDAwMCwiY3VycmVuY3kiOiJVU0QifX0sInBh
+eWxvYWQiOnsib2ZmZXJpbmciOiJib29rLW1lZXRpbmciLCJ0ZXh0IjoiUGxlYXNlIGJvb2sgMzAg
+bWludXRlcyB3aXRoIEFuYSBMaW1hIG5leHQgd2Vlay4gSGVyIGZyZWUgdGltZXMgYXJlIGluIHRo
+ZSBhdHRhY2hlZCBhZ2VuZGEuIiwiaW5wdXQiOnsiZHVyYXRpb25fbWludXRlcyI6MzAsIndpbmRv
+dyI6eyJmcm9tIjoiMjAyNi0xMS0wMiIsInRvIjoiMjAyNi0xMS0wNiJ9LCJ0aW1lem9uZSI6IkFt
+ZXJpY2EvRGVudmVyIiwiYXR0ZW5kZWUiOiJhbmFAZXhhbXBsZS5vcmcifSwiZmlsZXMiOlt7Im5h
+bWUiOiJhZ2VuZGEudHh0IiwibWVkaWFfdHlwZSI6InRleHQvcGxhaW4iLCJyZWYiOiJjaWQ6YWdl
+bmRhLjAxOWEzZjFjQGFnZW50cy5leGFtcGxlLm9yZyIsInNpemUiOjI4NCwiZGlnZXN0Ijoic2hh
+MjU2OmM0MTE1NTA1MzM5YjQwYzg3NWQwNmYxNjg4ZTk5NzUwMGQwMmM5ZDdiNDIwZmM4NTQ4ZGQ1
+MTkzMTRiMjA0YzQifV19LCJtZXRhIjp7ImFnZW50X2VtYWlsaW5nIjp7InYiOiIwLjIuMCIsIm9m
+ZmVyaW5nX25hbWUiOiJCb29rIGEgbWVldGluZyIsInN1YmplY3QiOiJCb29rIGEgbWVldGluZyDi
+gJQgcmVxdWVzdCIsImh1bWFuX3RleHQiOiJzaGEyNTY6NTdkNzMyMDIxOTRjNDdkNmI5NDhmNjYy
+Y2U1OTkzZWVkNDI3NTIyM2VhYWZjMWQ1ODVhZDM3NTY5MzQxMWRmNSJ9fSwic2lnIjoiSW1qRW9V
+UUxQLXEyd0lJc1RnLU1Mb1BTTG5taFljM1YwX081bGczWnFyVUt3R3ZOOUN3dzlMTExyeU9Bc1BU
+UGxuMDBNTU9NbG5fTFhnWUpfODNtQmcifQ==
+--=_ae_r1_a7f3c9e1
+Content-Type: text/plain; name="agenda.txt"
+Content-Disposition: attachment; filename="agenda.txt"
+Content-ID: <agenda.019a3f1c@agents.example.org>
+Content-Transfer-Encoding: base64
+
+QWdlbmRhOiBwbGFubmluZyBtZWV0aW5nIHdpdGggQW5hIExpbWEKCkxlbmd0aDogMzAgbWludXRl
+cwpBbmEgaXMgZnJlZSBvbiB0aGVzZSBkYXlzLCBNb3VudGFpbiB0aW1lOgogIE1vbmRheSAyIE5v
+dmVtYmVyLCAwOTowMCB0byAxMjowMAogIFR1ZXNkYXkgMyBOb3ZlbWJlciwgMTA6MDAgdG8gMTU6
+MDAKICBUaHVyc2RheSA1IE5vdmVtYmVyLCAxMzowMCB0byAxNzowMAoKVG9waWNzOgogIDEuIE5l
+eHQgcXVhcnRlcidzIHNjaGVkdWxlCiAgMi4gV2hvIGpvaW5zIHRoZSBKYW51YXJ5IHJldmlldwo=
+--=_ae_r1_a7f3c9e1--

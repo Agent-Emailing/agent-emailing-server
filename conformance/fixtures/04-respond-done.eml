@@ -1,0 +1,74 @@
+From: "Bookings desk agent" <bookings-agent@mail.example.com>
+To: "Ana's scheduling agent" <scheduler@agents.example.org>
+Subject: =?UTF-8?B?UmU6IEJvb2sgYSBtZWV0aW5nIOKAlCBkb25l?=
+Date: Thu, 29 Oct 2026 10:23:12 -0600
+Message-ID: <5f2a9c13-8e7d-4b61-a2c0-9d8e7f6a5b4c@mail.example.com>
+In-Reply-To: <b81c4d02.20261029161905@agents.example.org>
+References: <a7f3c9e1.20261029161403@agents.example.org> <0e5d2b77-c1a4-4f0e-9b3a-5c6d7e8f9a0b@mail.example.com> <b81c4d02.20261029161905@agents.example.org>
+Auto-Submitted: auto-generated
+Agent-Emailing-Version: 0.2.0
+Agent-Messaging-Type: respond
+Agent-Messaging-Task: 019a3f1e-5c3a-7d10-8e2f-4a5b6c7d8e01
+Agent-Messaging-Context: 019a3f1c-7b2e-7c41-9a6d-3e5f0b1c2d00
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="=_ae_r4_5f2a9c13"
+
+--=_ae_r4_5f2a9c13
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 7bit
+
+Answer from Bookings.desk@example.com, acting for the bookings desk at example.com, to Scheduler.ana@example.org, about Book a meeting.
+
+Outcome: Done
+Result: Booked: Tuesday 3 November, 10:00 to 10:30 Mountain time. The invitation is attached.
+Files returned: invite.ics (text/calendar, 376 bytes)
+What happens next: Nothing more is needed. Open the attached files to use the result.
+
+--
+Generated from the signed Agent Emailing envelope (envelope.json).
+Agents act only on the envelope. Software that checks Agent Emailing
+confirms that this text matches it.
+--=_ae_r4_5f2a9c13
+Content-Type: application/vnd.agentmessaging.envelope+json; charset=utf-8
+Content-Disposition: attachment; filename="envelope.json"
+Content-Transfer-Encoding: base64
+
+eyJ2IjoiMC4zLjAiLCJpZCI6IjAxOWEzZjIyLTBkNmUtN2EzNS1iNGQyLTZlN2Y4YTliMGMwNCIs
+InR5cGUiOiJyZXNwb25kIiwidHMiOiIyMDI2LTEwLTI5VDE2OjIzOjEyLjAwMFoiLCJmcm9tIjoi
+VUFJVUtHQklYUTNVU1hPWUpRSUZSTkFQWFQ3U0pTRk9EQkhHQkFMSVI0S0RWVlNWQ0xPWTdMUUYi
+LCJ0byI6IlVCTUJINEJLNkVJSFFGVk1ITFNBQkZTUVhCM0pYVUZaT1hWWlFUSUVSTzMzQUQ0SEhB
+STNEN1FQIiwiaW5fcmVwbHlfdG8iOiIwMTlhM2YyMC05MWI0LTdmMjItYTBjMS0yZDNlNGY1YTZi
+MDMiLCJ0YXNrX2lkIjoiMDE5YTNmMWUtNWMzYS03ZDEwLThlMmYtNGE1YjZjN2Q4ZTAxIiwiY29u
+dGV4dF9pZCI6IjAxOWEzZjFjLTdiMmUtN2M0MS05YTZkLTNlNWYwYjFjMmQwMCIsInRyYWNlIjp7
+InRyYWNlX2lkIjoiN2QzZTFmMGE5YjJjNGQ1ZThmNmExYjJjM2Q0ZTVmNjAiLCJzcGFuX2lkIjoi
+ZDFlMmYzYTRiNWM2ZDdlOCIsInBhcmVudF9zcGFuX2lkIjoiYzlkMGUxZjJhM2I0YzVkNiJ9LCJw
+YXlsb2FkIjp7InN0YXR1cyI6ImNvbXBsZXRlZCIsInRleHQiOiJCb29rZWQ6IFR1ZXNkYXkgMyBO
+b3ZlbWJlciwgMTA6MDAgdG8gMTA6MzAgTW91bnRhaW4gdGltZS4gVGhlIGludml0YXRpb24gaXMg
+YXR0YWNoZWQuIiwib3V0cHV0Ijp7InN0YXJ0IjoiMjAyNi0xMS0wM1QxNzowMDowMFoiLCJlbmQi
+OiIyMDI2LTExLTAzVDE3OjMwOjAwWiIsImNvbmZpcm1hdGlvbiI6IkJLLTQ0NzEifX0sImFydGlm
+YWN0cyI6W3siaWQiOiIwMTlhM2YyMi0wZDZlLTdhMzUtYjRkMi02ZTdmOGE5YjBjMGEiLCJuYW1l
+IjoiTWVldGluZyBpbnZpdGF0aW9uIiwibWVkaWFfdHlwZSI6InRleHQvY2FsZW5kYXIiLCJwYXJ0
+cyI6W3sicmVmIjoiY2lkOmludml0ZS4wMTlhM2YyMkBtYWlsLmV4YW1wbGUuY29tIiwibWVkaWFf
+dHlwZSI6InRleHQvY2FsZW5kYXIiLCJzaXplIjozNzYsImRpZ2VzdCI6InNoYTI1NjpmMGIzZjIw
+YWJmZDVjYmNlYTYxNzAzZjM2YjllMGI1MTQwZmFkN2Q5ZGU4ZjlmOGY1MTM0YjQ5ZDg4MmZhOGFj
+IiwibmFtZSI6Imludml0ZS5pY3MifV0sImNyZWF0ZWRfYXQiOiIyMDI2LTEwLTI5VDE2OjIzOjEy
+LjAwMFoifV0sIm1ldGEiOnsiYWdlbnRfZW1haWxpbmciOnsidiI6IjAuMi4wIiwib2ZmZXJpbmdf
+bmFtZSI6IkJvb2sgYSBtZWV0aW5nIiwic3ViamVjdCI6IlJlOiBCb29rIGEgbWVldGluZyDigJQg
+ZG9uZSIsImh1bWFuX3RleHQiOiJzaGEyNTY6MDA2YTY3YTFkZGM4ZjVhNmIwNzMyODM2M2Q5OGU5
+N2U4ZjhhODUwYTU4YTcwNzUyMzg1OTBmZmQyYjZlYjRiNyJ9fSwic2lnIjoiVHk0bzlZYXhweHlr
+R0d0elQtYXBnZzZTTzdEQlRMX2VoTjA1UlV5ZVoyWHhtR25KRFZBR0Iwel8xWUgzMXJkdUU1bUZC
+d3F5UkE3U0F3VzFseklDQncifQ==
+--=_ae_r4_5f2a9c13
+Content-Type: text/calendar; name="invite.ics"
+Content-Disposition: attachment; filename="invite.ics"
+Content-ID: <invite.019a3f22@mail.example.com>
+Content-Transfer-Encoding: base64
+
+QkVHSU46VkNBTEVOREFSDQpWRVJTSU9OOjIuMA0KUFJPRElEOi0vL2V4YW1wbGUuY29tLy9Cb29r
+aW5ncyBkZXNrIGFnZW50Ly9FTg0KTUVUSE9EOlJFUVVFU1QNCkJFR0lOOlZFVkVOVA0KVUlEOkJL
+LTQ0NzFAbWFpbC5leGFtcGxlLmNvbQ0KRFRTVEFNUDoyMDI2MTAyOVQxNjIzMTJaDQpEVFNUQVJU
+OjIwMjYxMTAzVDE3MDAwMFoNCkRURU5EOjIwMjYxMTAzVDE3MzAwMFoNClNVTU1BUlk6UGxhbm5p
+bmcgbWVldGluZyB3aXRoIEFuYSBMaW1hDQpPUkdBTklaRVI6bWFpbHRvOmJvb2tpbmdzLWFnZW50
+QG1haWwuZXhhbXBsZS5jb20NCkFUVEVOREVFO0NOPUFuYSBMaW1hOm1haWx0bzphbmFAZXhhbXBs
+ZS5vcmcNCkVORDpWRVZFTlQNCkVORDpWQ0FMRU5EQVINCg==
+--=_ae_r4_5f2a9c13--

@@ -1,0 +1,56 @@
+{
+  "name": "agent-emailing-server",
+  "version": "0.1.0",
+  "description": "The Agent Emailing Server: the reference implementation of Agent Emailing, signed agent messages carried by ordinary email.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./providers/*": {
+      "types": "./dist/providers/*.d.ts",
+      "import": "./dist/providers/*.js"
+    }
+  },
+  "bin": {
+    "agent-emailing-server": "./dist/server/cli.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "NOTICE"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "npm run build && node --test test/",
+    "conformance": "npm run build && node conformance/run.mjs",
+    "start": "node dist/server/cli.js"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "agent-messaging": "^0.63.0",
+    "typescript": "^5.7.3"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jeffrschneider/agent-emailing-server.git"
+  },
+  "keywords": [
+    "agent",
+    "agent-emailing",
+    "agent-messaging",
+    "email",
+    "mime",
+    "imap",
+    "smtp"
+  ]
+}

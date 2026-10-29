@@ -1,0 +1,57 @@
+From: "Bookings desk agent" <bookings-agent@mail.example.com>
+To: "Ana's scheduling agent" <scheduler@agents.example.org>
+Subject: =?UTF-8?B?UmU6IEJvb2sgYSBtZWV0aW5nIOKAlCBuZWVkcyB5b3VyIGlucHV0?=
+Date: Thu, 29 Oct 2026 10:16:40 -0600
+Message-ID: <0e5d2b77-c1a4-4f0e-9b3a-5c6d7e8f9a0b@mail.example.com>
+In-Reply-To: <a7f3c9e1.20261029161403@agents.example.org>
+References: <a7f3c9e1.20261029161403@agents.example.org>
+Auto-Submitted: auto-generated
+Agent-Emailing-Version: 0.2.0
+Agent-Messaging-Type: respond
+Agent-Messaging-Task: 019a3f1e-5c3a-7d10-8e2f-4a5b6c7d8e01
+Agent-Messaging-Context: 019a3f1c-7b2e-7c41-9a6d-3e5f0b1c2d00
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="=_ae_r2_0e5d2b77"
+
+--=_ae_r2_0e5d2b77
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 7bit
+
+Answer from Bookings.desk@example.com, acting for the bookings desk at example.com, to Scheduler.ana@example.org, about Book a meeting.
+
+Outcome: Needs your input
+Result: Two times are free next week: Tuesday 3 November at 10:00, or Thursday 5 November at 13:30, Mountain time.
+Needed from you: Choose one of the two times.
+Files returned: none
+What happens next: Reply with what is asked for. The work waits for your answer.
+
+--
+Generated from the signed Agent Emailing envelope (envelope.json).
+Agents act only on the envelope. Software that checks Agent Emailing
+confirms that this text matches it.
+--=_ae_r2_0e5d2b77
+Content-Type: application/vnd.agentmessaging.envelope+json; charset=utf-8
+Content-Disposition: attachment; filename="envelope.json"
+Content-Transfer-Encoding: base64
+
+eyJ2IjoiMC4zLjAiLCJpZCI6IjAxOWEzZjFlLTVjM2EtN2QxMC04ZTJmLTRhNWI2YzdkOGUwMiIs
+InR5cGUiOiJyZXNwb25kIiwidHMiOiIyMDI2LTEwLTI5VDE2OjE2OjQwLjAwMFoiLCJmcm9tIjoi
+VUFJVUtHQklYUTNVU1hPWUpRSUZSTkFQWFQ3U0pTRk9EQkhHQkFMSVI0S0RWVlNWQ0xPWTdMUUYi
+LCJ0byI6IlVCTUJINEJLNkVJSFFGVk1ITFNBQkZTUVhCM0pYVUZaT1hWWlFUSUVSTzMzQUQ0SEhB
+STNEN1FQIiwiaW5fcmVwbHlfdG8iOiIwMTlhM2YxYy03YjJlLTdjNDEtOWE2ZC0zZTVmMGIxYzJk
+MDEiLCJ0YXNrX2lkIjoiMDE5YTNmMWUtNWMzYS03ZDEwLThlMmYtNGE1YjZjN2Q4ZTAxIiwiY29u
+dGV4dF9pZCI6IjAxOWEzZjFjLTdiMmUtN2M0MS05YTZkLTNlNWYwYjFjMmQwMCIsInRyYWNlIjp7
+InRyYWNlX2lkIjoiN2QzZTFmMGE5YjJjNGQ1ZThmNmExYjJjM2Q0ZTVmNjAiLCJzcGFuX2lkIjoi
+YjdjOGQ5ZTBmMWEyYjNjNCIsInBhcmVudF9zcGFuX2lkIjoiYTFiMmMzZDRlNWY2MDcxOCJ9LCJw
+YXlsb2FkIjp7InN0YXR1cyI6ImlucHV0X3JlcXVpcmVkIiwidGV4dCI6IlR3byB0aW1lcyBhcmUg
+ZnJlZSBuZXh0IHdlZWs6IFR1ZXNkYXkgMyBOb3ZlbWJlciBhdCAxMDowMCwgb3IgVGh1cnNkYXkg
+NSBOb3ZlbWJlciBhdCAxMzozMCwgTW91bnRhaW4gdGltZS4iLCJwcm9ibGVtcyI6W3siaW5wdXQi
+OiJzbG90IiwicHJvYmxlbSI6Im1pc3NpbmciLCJkZXNjcmlwdGlvbiI6IkNob29zZSBvbmUgb2Yg
+dGhlIHR3byB0aW1lcy4iLCJleHBlY3RlZCI6IjIwMjYtMTEtMDNUMTc6MDA6MDBaIG9yIDIwMjYt
+MTEtMDVUMjA6MzA6MDBaIn1dfSwibWV0YSI6eyJhZ2VudF9lbWFpbGluZyI6eyJ2IjoiMC4yLjAi
+LCJvZmZlcmluZ19uYW1lIjoiQm9vayBhIG1lZXRpbmciLCJzdWJqZWN0IjoiUmU6IEJvb2sgYSBt
+ZWV0aW5nIOKAlCBuZWVkcyB5b3VyIGlucHV0IiwiaHVtYW5fdGV4dCI6InNoYTI1Njo0ODc5ZTk2
+YWU2MTgxODc5YmE0ZmM1YWIzMjk4ZDQ4ODFjNjg3MzQ2N2MyOTU5ODk3ODU5YjE3ZjQ2Y2JlYzAz
+In19LCJzaWciOiJOR1FOa3h5WmRiUE8tZHZDUG9RVkpIVmcxdEIzelMzRWl5LV9VMHc1NWxkaTJK
+S0tENFhfeS1Rcm9qTnd1ZnhlTFZSdTZCblZ3N2cwdU9rRWZxUmVCdyJ9
+--=_ae_r2_0e5d2b77--

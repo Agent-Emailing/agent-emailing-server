@@ -1,0 +1,72 @@
+{
+  "comment": "TEST name cards for the fixtures' two agents, signed as Personal Agent Naming §5.3 describes by a test registrar minted from 'agent-emailing test vector: registrar'. They control nothing. The example page's 'name card verified' badge is shown only where a card verifies against this key set, is valid at the email's time, binds the envelope's from key, and lists the email's From address as an email endpoint.",
+  "registrar": "https://registrar.example.net",
+  "key_set": [
+    {
+      "kid": "8efa5d6d3d29",
+      "key": "mdHVJb2GFxzNSxI2Z0V0XXTt4XGhuAjpByLc1YvqsMk",
+      "status": "current",
+      "use": "pan-card-signing"
+    }
+  ],
+  "cards": {
+    "UBMBH4BK6EIHQFVMHLSABFSQXB3JXUFZOXVZQTIERO33AD4HHAI3D7QP": {
+      "card": {
+        "handle": "Scheduler.ana@example.org",
+        "operator": {
+          "name": "Ana Lima"
+        },
+        "binding": "agent-key",
+        "key_history": [],
+        "claimed_via": "email",
+        "claimed_at": "2026-09-14T15:02:00.000Z",
+        "endpoints": [
+          {
+            "protocol": "agentmesh",
+            "agent_id": "UBMBH4BK6EIHQFVMHLSABFSQXB3JXUFZOXVZQTIERO33AD4HHAI3D7QP"
+          },
+          {
+            "protocol": "email",
+            "address": "scheduler@agents.example.org",
+            "max_message_bytes": 10485760
+          }
+        ],
+        "registrar": "https://registrar.example.net",
+        "issued_at": "2026-10-29T16:00:00.000Z",
+        "expires_at": "2026-10-29T17:00:00.000Z"
+      },
+      "registrar_key": "mdHVJb2GFxzNSxI2Z0V0XXTt4XGhuAjpByLc1YvqsMk",
+      "registrar_kid": "8efa5d6d3d29",
+      "registrar_sig": "JkupiEDiUfClmk7rOpO+9ty/onNdefeBW2zvxhri4pw3PYVC/Bn2p7nnRZ7pi9Z6gEr/nB/aMt1p7LWRvDtFDQ=="
+    },
+    "UAIUKGBIXQ3USXOYJQIFRNAPXT7SJSFODBHGBALIR4KDVVSVCLOY7LQF": {
+      "card": {
+        "handle": "Bookings.desk@example.com",
+        "operator": {
+          "name": "Bookings desk, example.com"
+        },
+        "binding": "agent-key",
+        "key_history": [],
+        "claimed_via": "email",
+        "claimed_at": "2026-08-03T18:40:00.000Z",
+        "endpoints": [
+          {
+            "protocol": "agentmesh",
+            "agent_id": "UAIUKGBIXQ3USXOYJQIFRNAPXT7SJSFODBHGBALIR4KDVVSVCLOY7LQF"
+          },
+          {
+            "protocol": "email",
+            "address": "bookings-agent@mail.example.com",
+            "max_message_bytes": 10485760
+          }
+        ],
+        "registrar": "https://registrar.example.net",
+        "issued_at": "2026-10-29T16:00:00.000Z",
+        "expires_at": "2026-10-29T17:00:00.000Z"
+      },
+      "registrar_key": "mdHVJb2GFxzNSxI2Z0V0XXTt4XGhuAjpByLc1YvqsMk",
+      "registrar_kid": "8efa5d6d3d29",
+      "registrar_sig": "EjJtCkjBARd2cO0Uo3SKiOlQoqOr+8c5fPm4NL1MwH3rF5R3N4KrjGNx2FoeS2hYw6yaBZDwMcztaczd0EPyBg=="
+    }
+  }
+}

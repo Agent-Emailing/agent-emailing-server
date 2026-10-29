@@ -1,0 +1,103 @@
+From: "Ana's scheduling agent" <scheduler@agents.example.org>
+To: "Bookings desk agent" <bookings-agent@mail.example.com>
+Subject: =?UTF-8?B?Qm9vayBhIG1lZXRpbmcg4oCUIHJlcXVlc3Q=?=
+Date: Thu, 29 Oct 2026 10:14:03 -0600
+Message-ID: <a7f3c9e1.20261029161403@agents.example.org>
+Auto-Submitted: auto-generated
+Agent-Emailing-Version: 0.2.0
+Agent-Messaging-Type: request
+Agent-Messaging-Context: 019a3f1c-7b2e-7c41-9a6d-3e5f0b1c2d00
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="=_ae_r1_a7f3c9e1"
+
+--=_ae_r1_a7f3c9e1
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 7bit
+
+Request from Scheduler.ana@example.org, acting for Ana Lima, to Bookings.desk@example.com.
+
+Asked for: Book a meeting
+Message: Please book 30 minutes with Ana Lima next week. Her free times are in the attached agenda.
+Handed over: agenda.txt (text/plain, 284 bytes)
+Price: up to 2.00 USD
+Answer needed by: Friday 30 October 2026, 11:00 Mountain time
+What happens next: Bookings.desk@example.com will do the work or ask for what it needs. Its answer will arrive in this thread.
+
+--
+Generated from the signed Agent Emailing envelope (envelope.json).
+Agents act only on the envelope. Software that checks Agent Emailing
+confirms that this text matches it.
+--=_ae_r1_a7f3c9e1
+Content-Type: application/vnd.agentmessaging.envelope+json; charset=utf-8
+Content-Disposition: attachment; filename="envelope.json"
+Content-Transfer-Encoding: quoted-printable
+
+{
+  "sig": "ImjEoUQLP-q2wIIsTg-MLoPSLnmhYc3V0_O5lg3ZqrUKwGvN9Cww9LLLryOAsPTPl=
+n00MMOMln_LXgYJ_83mBg",
+  "meta": {
+    "agent_emailing": {
+      "human_text": "sha256:57d73202194c47d6b948f662ce5993eed4275223eaafc1d=
+585ad375693411df5",
+      "subject": "Book a meeting =E2=80=94 request",
+      "offering_name": "Book a meeting",
+      "v": "0.2.0"
+    }
+  },
+  "payload": {
+    "files": [
+      {
+        "digest": "sha256:c4115505339b40c875d06f1688e997500d02c9d7b420fc854=
+8dd519314b204c4",
+        "size": 284,
+        "ref": "cid:agenda.019a3f1c@agents.example.org",
+        "media_type": "text/plain",
+        "name": "agenda.txt"
+      }
+    ],
+    "input": {
+      "attendee": "ana@example.org",
+      "timezone": "America/Denver",
+      "window": {
+        "to": "2026-11-06",
+        "from": "2026-11-02"
+      },
+      "duration_minutes": 30
+    },
+    "text": "Please book 30 minutes with Ana Lima next week. Her free times=
+ are in the attached agenda.",
+    "offering": "book-meeting"
+  },
+  "budget": {
+    "cost_ceiling": {
+      "currency": "USD",
+      "amount_micro": 2000000
+    },
+    "revision": 0,
+    "deadline": "2026-10-30T17:00:00Z"
+  },
+  "context_id": "019a3f1c-7b2e-7c41-9a6d-3e5f0b1c2d00",
+  "trace": {
+    "parent_span_id": null,
+    "span_id": "a1b2c3d4e5f60718",
+    "trace_id": "7d3e1f0a9b2c4d5e8f6a1b2c3d4e5f60"
+  },
+  "to": "UAIUKGBIXQ3USXOYJQIFRNAPXT7SJSFODBHGBALIR4KDVVSVCLOY7LQF",
+  "from": "UBMBH4BK6EIHQFVMHLSABFSQXB3JXUFZOXVZQTIERO33AD4HHAI3D7QP",
+  "ts": "2026-10-29T16:14:03.000Z",
+  "type": "request",
+  "id": "019a3f1c-7b2e-7c41-9a6d-3e5f0b1c2d01",
+  "v": "0.3.0"
+}
+--=_ae_r1_a7f3c9e1
+Content-Type: text/plain; name="agenda.txt"
+Content-Disposition: attachment; filename="agenda.txt"
+Content-ID: <agenda.019a3f1c@agents.example.org>
+Content-Transfer-Encoding: base64
+
+QWdlbmRhOiBwbGFubmluZyBtZWV0aW5nIHdpdGggQW5hIExpbWEKCkxlbmd0aDogMzAgbWludXRl
+cwpBbmEgaXMgZnJlZSBvbiB0aGVzZSBkYXlzLCBNb3VudGFpbiB0aW1lOgogIE1vbmRheSAyIE5v
+dmVtYmVyLCAwOTowMCB0byAxMjowMAogIFR1ZXNkYXkgMyBOb3ZlbWJlciwgMTA6MDAgdG8gMTU6
+MDAKICBUaHVyc2RheSA1IE5vdmVtYmVyLCAxMzowMCB0byAxNzowMAoKVG9waWNzOgogIDEuIE5l
+eHQgcXVhcnRlcidzIHNjaGVkdWxlCiAgMi4gV2hvIGpvaW5zIHRoZSBKYW51YXJ5IHJldmlldwo=
+--=_ae_r1_a7f3c9e1--

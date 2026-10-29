@@ -1,0 +1,31 @@
+Agent Emailing Server
+Copyright 2026 Jeff Schneider
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+The Agent Emailing Server is sponsored by AgentMesh (https://agentmesh.ai).
+
+This repository also contains copies of conformance material published with
+the specifications it implements, from
+https://github.com/CommonAgent/common-agent-standards:
+
+- conformance/cases.json, conformance/cards.json and conformance/fixtures/,
+  the Agent Emailing 0.2.0 conformance cases and fixtures
+  (emailing/conformance/), as published at https://agentemailing.ai.
+- conformance/inbound-protections.json, the Agent Messaging receiver
+  protections fixture (messaging/conformance/), as published at
+  https://agentmessaging.ai.
+
+The MIME reader, canonical JSON, NKey encoding and human-part generation in
+src/ began from the reference tools in emailing/conformance/ (lib.mjs and
+mail.mjs) of the same repository.
